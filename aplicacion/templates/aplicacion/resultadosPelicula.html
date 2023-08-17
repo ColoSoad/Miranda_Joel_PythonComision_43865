@@ -1,0 +1,29 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+{% block contenido %}
+<section class="features-icons bg-black text-center">
+<h3><p style="color: white;">Resultado de la busqueda "{{ nombre }}"</p></h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th><p style="color: red;">ID</p></th>
+                <th><p style="color: red;">NOMBRE</p></th>
+                <th><p style="color: red;">AÑO</p></th>
+                <th><p style="color: red;">GENERO</p></th>
+                <th><p style="color: red;">PLATAFORMA</p></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for peli in resultados %}
+        <tr>
+            <td><p style="color: white;">{{ peli.id }}</p></td>
+            <td><p style="color: white;">{{ peli.nombre }}</p></td>
+            <td><p style="color: white;">{{ peli.año }}</p></td>
+            <td><p style="color: white;">{{ peli.genero }}</p></td>
+            <td><p style="color: white;">{{ peli.plataforma }}</p></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock contenido %}

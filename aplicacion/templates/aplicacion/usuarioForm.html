@@ -1,0 +1,24 @@
+{% extends 'aplicacion/base.html' %}
+    {% load static %}
+
+
+{% block titulo %}
+    Nuevo Usuario
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    <h3><p style="color: red;">CREAR NUEVO USUARIO</p></h3>
+{% endblock cabecera %}
+    
+{% block contenido %}
+
+    <form action="" method="POST">
+        {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+    
+{% endblock contenido %}

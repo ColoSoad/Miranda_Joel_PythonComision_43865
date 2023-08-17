@@ -1,0 +1,33 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    PELICULAS
+{% endblock titulo %}    
+{% block contenido %}
+<section class="features-icons bg-black text-center">
+    <td><h3><p style="color: red;">Pelicula: {{object}}</p></h3></td>
+    <table class="table">
+        <thead>
+            <tr>            
+                <th><p style="color: red;">ID</p></th>
+                <th><p style="color: red;">Nombre</p></th>
+                <th><p style="color: red;">Año</p></th>
+                <th><p style="color: red;">Género</p></th>
+                <th><p style="color: red;">plataforma</p></th>                    
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td><p style="color: white;">{{ object.id }}</p></td>
+                <td><p style="color: white;">{{ object.nombre }}</p></td>
+                <td><p style="color: white;">{{ object.año }}</p></td>
+                <td><p style="color: white;">{{ object.genero }}</p></td>
+                <td><p style="color: white;">{{ object.plataforma }}</p></td>
+            </tr>
+        </tbody>
+    </table>
+    <li class="navbar-brand"><a class="nav-link" href="{% url 'inicio' %}"><p style="color: red;">INICIO</p></a></li>
+</section>
+{% endblock contenido %}

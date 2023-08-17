@@ -1,0 +1,36 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    PELICULAS
+{% endblock titulo %}    
+{% block contenido %}
+<section class="features-icons bg-black text-center">
+    <h3><p style="color: red;">PELICULAS</p></h3>
+    <table class="table">
+        <thead>
+            <tr>               
+                <th><p style="color: red;">ID</p></th>
+                <th><p style="color: red;">Nombre</p></th>
+                <th><p style="color: red;">Acciones</p></th>                  
+            </tr>
+        </thead>
+        <tbody>
+        <li class="navbar-brand"><a class="nav-link" href="{% url 'create_pelicula' %}"><h2><p style="color: red;">+</p></h2></a></li>
+        {% for pelicula in pelicula_list %}
+        <tr>
+            <td><p style="color: white;">{{ pelicula.id }}</p></td>
+            <td><p style="color: white;">{{ pelicula.nombre }}</p></td>
+            <td>
+                <a href="{% url 'update_pelicula' pelicula.id %}" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa fa-edit fa-sm" title="Edit Record"></i></a>
+                <a href="{% url 'detail_pelicula' pelicula.id %}" class="btn btn-info" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa fa-search fa-sm" title="View Record"></i></a>
+                <a href="{% url 'delete_pelicula' pelicula.id %}" class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa fa-trash fa-sm" title="Delete Record"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <li class="navbar-brand"><a class="nav-link" href="{% url 'inicio' %}"><p style="color: red;">INICIO</p></a></li>
+</section>
+{% endblock contenido %}
